@@ -20,8 +20,9 @@ interface PastSponsor {
   imageUrl: string;
 }
 
-// --- Data for Section 1: Current Sponsors ---
+// --- Data for Section 1: Current Sponsors 
 const currentSponsorsData = {
+  // Existing data
   title: [
     {
       name: "MCL",
@@ -32,6 +33,52 @@ const currentSponsorsData = {
     {
       name: "Yono SBI",
       logo: "/sponsors_image/sbi-yono-app-icon.png",
+    },
+  ],
+  // New Categories based on Image A108A1 and A10B67
+  foodingPartners: [
+    {
+      name: "Dominos",
+      logo: "/sponsors_image/Dominos.png",
+    },
+    {
+      name: "Waffcha",
+      logo: "/sponsors_image/Waffcha.png",
+    },
+  ],
+  hospitalityPartner: [
+    {
+      name: "River Inn",
+      logo: "/sponsors_image/River Inn.png",
+    },
+  ],
+  beveragePartner: [
+    {
+      name: "OMFED",
+      logo: "/sponsors_image/OMFED.png",
+    },
+  ],
+  silverSponsor: [
+    {
+      name: "Interio", // Image mein 'SILVER SPONSOR' dikh raha hai
+      logo: "/sponsors_image/Interio.png",
+    },
+  ],
+  giftingPartner: [
+    {
+      name: "Sakshi Handloom", // Image mein 'GIFTING PARTNER' dikh raha hai
+      logo: "/sponsors_image/Sakshi Handloom.png",
+    },
+  ],
+  // Baaki jo categories mein fit nahi hue, unhe general 'Our Sponsor' mein rakha (Image A108A1 & A10B67 se)
+  currentSponsors: [
+    {
+      name: "Go cool", // Image A108A1 mein 'OUR SPONSOR' hai
+      logo: "/sponsors_image/Go cool.png",
+    },
+    {
+      name: "planet harjit", // Image A10B67 mein 'OUR SPONSOR' hai
+      logo: "/sponsors_image/planet harjit.png",
     },
   ],
 };
@@ -235,9 +282,7 @@ const SponsorsSection: React.FC = () => {
   const totalWidth = duplicatedSponsors.length * (112 + 24); // 112px (w-28) + 24px (gap-6)
 
   return (
-     
     <div className="w-full bg-black py-8 overflow-hidden">
-      
       <div className="pb-12 md:pb-16">
         <Sponsorship />
       </div>
@@ -251,9 +296,9 @@ const SponsorsSection: React.FC = () => {
             </h2>
             <div className="h-1 w-24 md:w-32 bg-[#E62B1E] rounded-full shadow-[0_0_10px_#E62B1E,0_0_20px_#E62B1E]"></div>
           </div>
+          
           {/* === Title Sponsor === */}
           <div className="mb-16">
-            {/* Using text-[#E62B1E] from the palette */}
             <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
               Title Sponsor
             </h3>
@@ -265,8 +310,7 @@ const SponsorsSection: React.FC = () => {
           </div>
 
           {/* === Digital Banking Partner === */}
-          <div>
-            {/* Using text-[#BDBDBD] from the palette */}
+          <div className="mb-16">
             <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
               Digital Banking Partner
             </h3>
@@ -276,6 +320,79 @@ const SponsorsSection: React.FC = () => {
               ))}
             </div>
           </div>
+
+          {/* === SILVER SPONSOR === */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
+              Silver Sponsor
+            </h3>
+            <div className="flex justify-center flex-wrap gap-8">
+              {currentSponsorsData.silverSponsor.map((sponsor, index) => (
+                <SponsorCard key={index} sponsor={sponsor} />
+              ))}
+            </div>
+          </div>
+
+          {/* === Fooding Partner === */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
+              Fooding Partner
+            </h3>
+            <div className="flex justify-center flex-wrap gap-8">
+              {currentSponsorsData.foodingPartners.map((partner, index) => (
+                <SponsorCard key={index} sponsor={partner} />
+              ))}
+            </div>
+          </div>
+
+          {/* === Hospitality Partner === */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
+              Hospitality Partner
+            </h3>
+            <div className="flex justify-center flex-wrap gap-8">
+              {currentSponsorsData.hospitalityPartner.map((partner, index) => (
+                <SponsorCard key={index} sponsor={partner} />
+              ))}
+            </div>
+          </div>
+
+          {/* === Beverage Partner === */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
+              Beverage Partner
+            </h3>
+            <div className="flex justify-center flex-wrap gap-8">
+              {currentSponsorsData.beveragePartner.map((partner, index) => (
+                <SponsorCard key={index} sponsor={partner} />
+              ))}
+            </div>
+          </div>
+
+          {/* === Gifting Partner === */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
+              Gifting Partner
+            </h3>
+            <div className="flex justify-center flex-wrap gap-8">
+              {currentSponsorsData.giftingPartner.map((partner, index) => (
+                <SponsorCard key={index} sponsor={partner} />
+              ))}
+            </div>
+          </div>
+
+          {/* === Current Sponsors (Jo image mein 'OUR SPONSOR' the) === */}
+          <div className="mb-8">
+            <h3 className="text-2xl md:text-3xl font-semibold text-center text-[#E62B1E] mb-8">
+              Sponsors
+            </h3>
+            <div className="flex justify-center flex-wrap gap-8">
+              {currentSponsorsData.currentSponsors.map((sponsor, index) => (
+                <SponsorCard key={index} sponsor={sponsor} />
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -283,7 +400,6 @@ const SponsorsSection: React.FC = () => {
       <div className="relative mt-8">
         <div className="flex flex-col md:flex-row items-center gap-8 px-4">
           {/* Title on the left */}
-          {/* Using text-white (#FFFFFF) and text-[#BDBDBD] from the palette */}
           <h2 className="text-3xl md:text-5xl font-bold text-white whitespace-nowrap flex-shrink-0">
             PAST <span className="text-[#BDBDBD]">SPONSORS</span>
           </h2>
@@ -305,7 +421,6 @@ const SponsorsSection: React.FC = () => {
                 {duplicatedSponsors.map((sponsor, index) => (
                   <motion.div
                     key={`${sponsor.id}-${index}`}
-                    // Using sponsor.bg (which is 'bg-white' / #FFFFFF) from the palette
                     className={`flex-shrink-0 w-28 h-28 p-2 ${sponsor.bg} rounded-xl flex items-center justify-center cursor-pointer shadow-lg`}
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.2 }}
@@ -328,7 +443,6 @@ const SponsorsSection: React.FC = () => {
         </div>
       </div>
     </div>
-    
   );
 };
 
